@@ -1,0 +1,19 @@
+package com.api.salesdata;
+
+import java.sql.SQLException;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/data")
+public class SalesRepResource {
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String GetData() throws SQLException {
+		System.out.println(PostgresConnect.connect().getSchema());
+		return "hey there";
+	}
+}

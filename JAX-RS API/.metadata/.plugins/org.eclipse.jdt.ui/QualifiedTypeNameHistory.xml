@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.ws.rs.ext.Provider"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.PreMatching"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerRequestFilter"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerResponseFilter"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerRequestContext"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="com.sun.research.ws.wadl.Response"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.Response"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerResponseContext"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.ws.rs.PathParam"/>
+<fullyQualifiedTypeName name="javax.ws.rs.PUT"/>
+</qualifiedTypeNameHistroy>

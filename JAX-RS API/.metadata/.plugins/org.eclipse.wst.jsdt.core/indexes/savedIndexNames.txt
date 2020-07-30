@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+D:\ECE\Development\SD Tutorial\JAX-RS API\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2815327250.index
+4177670062.index
+1896807745.index
+786704955.index

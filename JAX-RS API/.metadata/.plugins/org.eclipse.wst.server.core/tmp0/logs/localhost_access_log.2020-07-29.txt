@@ -1,0 +1,16 @@
+127.0.0.1 - - [29/Jul/2020:19:55:00 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:19:55:03 +0530] "GET /SalesRep/ HTTP/1.1" 200 52
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:19:55:04 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:19:59:21 +0530] "GET /SalesRep/api/data/getReps HTTP/1.1" 200 3377
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:27:49 +0530] "OPTIONS /SalesRep/api/data/create HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:27:50 +0530] "POST /SalesRep/api/data/create HTTP/1.1" 201 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:27:51 +0530] "GET /SalesRep/api/data/getReps HTTP/1.1" 200 3465
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:28:43 +0530] "OPTIONS /SalesRep/api/data/update HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:28:43 +0530] "PUT /SalesRep/api/data/update HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:28:44 +0530] "GET /SalesRep/api/data/getReps HTTP/1.1" 200 3468
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:29:14 +0530] "OPTIONS /SalesRep/api/data/update HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:29:14 +0530] "PUT /SalesRep/api/data/update HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:29:14 +0530] "GET /SalesRep/api/data/getReps HTTP/1.1" 200 3468
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:29:27 +0530] "OPTIONS /SalesRep/api/data/update HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:29:27 +0530] "PUT /SalesRep/api/data/update HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [29/Jul/2020:20:29:27 +0530] "GET /SalesRep/api/data/getReps HTTP/1.1" 200 3470

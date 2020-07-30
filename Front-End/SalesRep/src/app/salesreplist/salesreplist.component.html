@@ -1,0 +1,82 @@
+<h3 class="display-3">Welcome here!</h3>
+
+<div class="clearfix">
+  <div class="float-right p-2">
+    <button class="btn btn-success" (click)="showForm()">Create</button>    
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Gender</th>
+    <th colspan="2" class="text-center">Options</th>
+  </thead>
+  <tbody>
+    <p *ngIf="isLoading">Loading data...</p>
+    <tr *ngFor="let salesRep of salesReps">
+      <td>{{ salesRep.salesRepId }}</td>
+      <td>{{ salesRep.salesRepName }}</td>
+      <td>{{ salesRep.country }}</td>
+      <td>{{ salesRep.gender }}</td>
+      <td>
+        <button type="button" 
+        class="btn btn-outline-info" 
+        (click)="editRepInfo(salesRep)">Edit</button>
+      </td>
+      <td>
+        <button type="button" 
+        class="btn btn-outline-danger" 
+        (click)="raiseDeleteRequest(salesRep.salesRepId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="createModal" *ngIf="toCreateOrUpdate" (click)="toCreateOrUpdate = false;">
+  <div class="container" >
+    <div class="row" >
+      <div class="col-md-4 offset-md-4 formDiv" (click)="$event.stopPropagation()">
+        <h3 *ngIf="isCreateRequest">Create new Sales Representative!</h3>
+        <h3 *ngIf="!isCreateRequest">Update data</h3>
+        <form (ngSubmit)="onCreate(createOrUpdateForm)" #createOrUpdateForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" [(ngModel)]="editSalesRep.salesRepName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="">Country</label>
+            <input type="text" name="country" id="country" [(ngModel)]="editSalesRep.country" class="form-control" required>
+          </div>
+          <div>
+            <input type="radio" id="maleGender" name="gender" value="Male" [(ngModel)]="editSalesRep.gender" required checked>
+            <label for="maleGender">Male</label>
+            <input type="radio" id="femaleGender" name="gender" value="Female" [(ngModel)]="editSalesRep.gender" required>
+            <label for="femaleGender">Female</label>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-warning" [disabled]="!createOrUpdateForm.valid">{{ isCreateRequest ? 'Create' : 'Update'}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="deleteModal" *ngIf="toDelete" (click)="toDelete =!toDelete">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 deleteConfirmBox" (click)="$event.stopPropagation()">
+      <div>
+        <p>Are you sure you want to delete this?</p>
+      </div>
+      <div class="clearfix">
+        <div class="float-right btn-group">
+          <button class="btn btn-warning text-white" (click)="confirmDelete()">Yes</button>
+          <button class="btn btn-info" (click)="toDelete = false;deleteId = null;">No</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

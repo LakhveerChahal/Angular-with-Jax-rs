@@ -1,0 +1,5 @@
+package com.api.salesdata;
+
+public class SalesRepModel {
+
+}

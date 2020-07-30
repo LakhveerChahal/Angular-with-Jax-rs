@@ -1,0 +1,109 @@
+package com.api.salesdata;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SalesRepository {
+
+	private static Connection conn = null;
+
+	public static Connection getConnection() {
+		return PostgresConnect.connect();
+	}
+
+	public static List<SalesRepModel> GetSalesRepData() {
+		String query = "Select * from salesrep";
+		List<SalesRepModel> salesReps = new ArrayList<SalesRepModel>();
+
+		conn = getConnection();
+
+		try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				int salesrepid = rs.getInt("salesrepid");
+				String salesrepname = rs.getString("salesrepname");
+				String country = rs.getString("country");
+				String gender = rs.getString("gender");
+				SalesRepModel sr = new SalesRepModel(salesrepid, salesrepname, country, gender);
+				salesReps.add(sr);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return salesReps;
+
+	}
+
+	public static SalesRepModel GetSalesRep(int salesRepId) {
+		String query = "SELECT * FROM salesrep WHERE salesrepid = " + salesRepId;
+		Connection conn = getConnection();
+		SalesRepModel salesRepModel = null;
+
+		try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				int salesrepid = rs.getInt("salesrepid");
+				String salesrepname = rs.getString("salesrepname");
+				String country = rs.getString("country");
+				String gender = rs.getString("gender");
+				salesRepModel = new SalesRepModel(salesrepid, salesrepname, country, gender);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return salesRepModel;
+	}
+
+	public static int CreateNewSalesRep(SalesRepModel salesRepModel) {
+
+		String query = "INSERT INTO salesrep (salesrepname, country, gender) VALUES (?, ?, ?);";
+
+		conn = getConnection();
+
+		try (PreparedStatement preparedStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);) {
+			preparedStatement.setString(1, salesRepModel.getSalesRepName());
+			preparedStatement.setString(2, salesRepModel.getCountry());
+			preparedStatement.setString(3, salesRepModel.getGender());
+
+			preparedStatement.executeUpdate();
+			ResultSet rs = preparedStatement.getGeneratedKeys();
+
+			int generatedKey = 0;
+			if (rs.next()) {
+				generatedKey = rs.getInt(1);
+			}
+
+			return generatedKey;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		return 0;
+	}
+
+	public static boolean DeleteSalesRep(int salesRepId) {
+		String query = "DELETE FROM salesrep WHERE salesrepid = ?;";
+		
+		conn = getConnection();
+		
+		try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+			preparedStatement.setInt(1, salesRepId);
+			preparedStatement.executeUpdate();
+			
+			return true;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return false;
+	}
+}
